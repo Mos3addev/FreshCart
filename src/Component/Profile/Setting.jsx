@@ -104,7 +104,7 @@ export default function Setting() {
     },
     validationSchema: Yup.object({
       resetCode: Yup.string()
-        .matches(/^[0-9]{6}$/)
+        .matches(/^[0-9]{0,6}$/)
         .required(),
     }),
     onSubmit: (values, action) => {
@@ -114,7 +114,6 @@ export default function Setting() {
         .then((data) => {
           if (data.status === 200) {
             setLoading(false);
-
             notify(data.data.status, "success");
             ResetCode();
             ResetPassword();
@@ -151,16 +150,15 @@ export default function Setting() {
         .then((data) => {
           if (data.status === 200) {
             localStorage.removeItem("token")
-            .then(localStorage.setItem("token", data.data.token));
-            setLoading(false);
-
-            notify("Password Rested Succeeded", "success");
-            ResetPassword();
+            localStorage.setItem("token", data.data.token)
+            setLoading(false)
+            notify("Password Rested Succeeded", "success")
+            ResetPassword()
           }
           action.resetForm();
         })
         .catch((error) => {
-          if (error.response.status === 404) {
+          if (error) {
             setLoading(false);
             notify(error.response.data.message, "error");
           }
