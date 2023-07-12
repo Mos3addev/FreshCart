@@ -1,0 +1,1 @@
+npm i react-router-dom bootstrap @fortawesome/fontawesome-free jwt-decode axios react-slick slick-carousel formik yup react-toastify react-feather
