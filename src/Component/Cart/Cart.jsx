@@ -33,19 +33,19 @@ export default function Cart() {
     <>
       {Cart.cartOwner ? (
         <div className='p-5'>
-          <div className='bg-main-light rounded-3 px-5 py-3'>
+          <div className='bg-main-light rounded-3 px-md-5 py-3'>
             <h2 className='text-center'>Shop Cart</h2>
-            <h4>Total Cart Price:{Cart?.totalCartPrice || '0'} EGP</h4>
-            <h4>Number of Cart Items: {Cart?.products?.length || '0'} Products</h4>
+            <h4 className='ps-2' >Total Cart Price:{Cart?.totalCartPrice || '0'} EGP</h4>
+            <h4 className='ps-2'>Number of Cart Items: {Cart?.products?.length || '0'} Products</h4>
           </div>
           <div className='d-flex flex-column py-3'>
             {Cart.products ? (
               Cart.products.map((item) => (
-                <div key={item._id} className='d-flex px-5 py-3 mb-3 rounded-3 bg-main-light'>
-                  <div className='col-2'>
-                    <img src={item.product.imageCover} className='w-75 rounded-3' alt='' />
+                <div key={item._id} className='d-md-flex px-md-5 py-3 mb-3 rounded-3 bg-main-light'>
+                  <div className='col-md-2'>
+                    <img src={item.product.imageCover} className='w-100 rounded-3' alt='' />
                   </div>
-                  <div className='col-10'>
+                  <div className='col-md-10 ps-3 d-flex flex-column justify-content-center'>
                     <h3>{item.product.title}</h3>
                     <h3>
                       Price : ({`${item.price} X ${item.count}`}) {(item.price) * item.count} EGP

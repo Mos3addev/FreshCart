@@ -7,7 +7,7 @@ export default function MainLayout() {
   return (
     <div className='bg-image'>
       <Navbar/>
-      <div className='px-5 main-layout'>
+      <div className='px-md-5'>
         <Outlet/>
       </div>
      <Footer/>
