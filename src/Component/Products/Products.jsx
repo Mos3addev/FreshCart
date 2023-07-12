@@ -49,47 +49,55 @@ export default function Products() {
   
   return (
     <>
-        <div className="d-flex my-4 align-items-center justify-content-between">
-          <div>
-              <select
-                className="p-2 rounded-2"
-                value={sortBy}
-                onChange={handleSortChange}
-              >
-                <option value="" disabled>
-                  Sort by : Featured
-                </option>
-                <option value="price-high-to-low">Price: High to Low</option>
-                <option value="price-low-to-high">Price: Low to High</option>
-                <option value="title-a-to-z">From A to Z</option>
-                <option value="title-z-to-a">From Z to A</option>
-              </select>
+        <div className="d-md-flex my-4 align-items-center justify-content-between">
+          <div className='pt-2'>
+            <span className="h4">Sort: </span>
+            <select
+              className="p-2 rounded-2"
+              value={sortBy}
+              onChange={handleSortChange}
+            >
+              <option value="" disabled>
+                Sort by : Featured
+              </option>
+              <option value="price-high-to-low">Price: High to Low</option>
+              <option value="price-low-to-high">Price: Low to High</option>
+              <option value="title-a-to-z">From A to Z</option>
+              <option value="title-z-to-a">From Z to A</option>
+            </select>
           </div>
-          <div >
-            <span className="h4">Price: </span>
-            
-            <label htmlFor="min-price" className='h5'>from: </label>
-            <input
-              className='w-25 p-2 rounded-2'
-              type="text"
-              id='min-price'
-              placeholder="0"
-              value={minPrice}
-              onChange={(event) => setMinPrice(event.target.value)}
-              onKeyUp={handleSortChange}
-            />
-            <span className='h1
-            '> | </span>
-            <label htmlFor="max-price" className='h5'>to: </label>
-            <input
-              className='w-25 p-2 rounded-2'
-              type="text"
-              id='max-price'
-              placeholder="1000000"
-              value={maxPrice}
-              onChange={(event) => setMaxPrice(event.target.value)}
-              onKeyUp={handleSortChange}
-            />
+          <div className='d-flex pt-2 justify-content-center align-items-center'>
+            <span className="h4 pt-md-2">Price: </span>
+            <div>  
+              <span>
+                <label htmlFor="min-price" className='h5'>from: </label>
+
+                <input
+                  className='w-25 p-2 rounded-2'
+                  type="text"
+                  id='min-price'
+                  placeholder="0"
+                  value={minPrice}
+                  onChange={(event) => setMinPrice(event.target.value)}
+                  onKeyUp={handleSortChange}
+                />
+              </span>
+              <span className='h1
+              '> | </span>
+              <span>
+
+                <label htmlFor="max-price" className='h5'>to: </label>
+                <input
+                  className='w-25 p-2 rounded-2'
+                  type="text"
+                  id='max-price'
+                  placeholder="1000000"
+                  value={maxPrice}
+                  onChange={(event) => setMaxPrice(event.target.value)}
+                  onKeyUp={handleSortChange}
+                />
+              </span>
+            </div>
           </div>
         </div>
         <h4 className="text-danger text-center">{checkPrice ? checkPrice : ""}</h4>

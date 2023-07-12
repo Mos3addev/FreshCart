@@ -45,7 +45,7 @@ export default function ProductDetails() {
             <div className={`fade-container ${isVisible ? 'visible' : ''} row align-items-center`}>
                 <div className='col-md-4 pe-5'>
                     <div className='d-flex align-items-center'>
-                        <div className='col-md-2 pe-2'>
+                        <div className='col-xl-2 col-md-4 col-1'>
                             <div className='py-1 product-slider'>
                                 {productDetails.images && productDetails.images.map((img, index) => (
                                     <div
@@ -58,7 +58,7 @@ export default function ProductDetails() {
                                 ))}
                             </div>
                         </div>
-                        <img src={currentImage} className='w-100 col-md-10' alt="" />
+                        <img src={currentImage} className='w-100 col-xl-2 col-md-8 col-11' alt="" />
                     </div>
                 </div>
                 <div className='col-md-8'>
@@ -80,7 +80,7 @@ export default function ProductDetails() {
                         </div>
                         <h5 className='text-muted py-2'>{productDetails.description}</h5>
                         <div className='d-flex justify-content-between'>
-                            <div className='d-flex'>
+                            <div className='d-md-flex justify-content-center'>
                                 <h4 className=' text-main py-2'>{productDetails.category ? productDetails.category.name : ''} </h4>
                                 
                                 <h4 className=' text-main py-2'><span className='px-1 text-black'>|</span>{productDetails.subcategory ? productDetails.subcategory[0].name : ''}</h4>
