@@ -56,7 +56,7 @@ return <>
                             <i className="fa-brands fa-instagram"></i>
                         </a>
 
-                        <a href="https://www.linkedin.com/in/ahmed-mosaad-05504b234/" target='_blank' className='p-1' rel="noreferrer">
+                        <a href="https://www.linkedin.com/in/ahmedmosaadd/" target='_blank' className='p-1' rel="noreferrer">
 
                             <i className="fa-brands fa-linkedin"></i>
                         </a>
