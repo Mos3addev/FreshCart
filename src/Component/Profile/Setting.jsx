@@ -534,7 +534,7 @@ export default function Setting() {
                 onBlur={ResetPasswordFormik.handleBlur}
                 onChange={ResetPasswordFormik.handleChange}
                 value={ResetPasswordFormik.values.newPassword}
-                type="text"
+                type="password"
                 id="newPassword"
                 name="newPassword"
                 placeholder="Enter New Password"
