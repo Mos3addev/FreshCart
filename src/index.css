@@ -112,16 +112,6 @@ a:hover {
   width: 70px;
   margin-left: 10px;
 }
-.fade-container {
-  opacity: 0;
-  -webkit-transition: 1s all;
-  -o-transition: 1s all;
-  transition: 1s all;
-}
-
-.fade-container.visible {
-  opacity: 1;
-}
 .profile-sitting {
   display: -webkit-box;
   display: -ms-flexbox;

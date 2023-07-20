@@ -1,6 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { context } from '../../Context/Context';
 import Loading from '../Loading/Loading';
+import Aos from 'aos';
+import { Link } from 'react-router-dom';
 
 export default function Cart() {
   const [checkoutPop, setIsCheckout] = useState(false);
@@ -29,6 +31,9 @@ export default function Cart() {
     window.scrollTo(0, 0);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+  useEffect(function () {
+    Aos.init({ duration: 1000 });
+  }, []);
   return (
     <>
       {Cart.cartOwner ? (
@@ -41,9 +46,11 @@ export default function Cart() {
           <div className='d-flex flex-column py-3'>
             {Cart.products ? (
               Cart.products.map((item) => (
-                <div key={item._id} className='d-md-flex px-md-5 py-3 mb-3 rounded-3 bg-main-light'>
+                <div key={item._id} data-aos="zoom-in" className='d-md-flex px-md-5 py-3 mb-3 rounded-3 bg-main-light'>
                   <div className='col-md-2'>
-                    <img src={item.product.imageCover} className='w-100 rounded-3' alt='' />
+                    <Link to={`/product-details/${item.product._id}`}>
+                        <img src={item.product.imageCover} className='w-100 rounded-3' alt='' />
+                    </Link>
                   </div>
                   <div className='col-md-10 ps-3 d-flex flex-column justify-content-center'>
                     <h3>{item.product.title}</h3>

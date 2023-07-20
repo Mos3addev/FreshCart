@@ -1,24 +1,19 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthContext';
 import { context } from '../../Context/Context';
+import Aos from "aos";
 
 export default function Product({Products}) {
     let {userData} = useContext(AuthContext)
     let {Cart,addToCart,deleteFromCart,addToWishlist,deleteFromWishlist,Wishlist} = useContext(context)
-    
-    const [isVisible, setIsVisible] = useState(false);
-    useEffect(() => {
-        setIsVisible(false);
-        const timeoutId = setTimeout(() => {
-          setIsVisible(true);
-        },500);
-        return () => clearTimeout(timeoutId);
-      }, []);
+    useEffect(function () {
+    Aos.init({ duration: 1000 });
+    }, []);
   return (
     <>
     {Products.data?Products.data.map(item=>(
-        <div key={item._id} className={`fade-container ${isVisible ? 'visible' : ''} col-xl-2 col-lg-3 col-md-4 col-sm-6`}>
+        <div key={item._id} data-aos="zoom-in" className='col-xl-2 col-lg-3 col-md-4 col-sm-6'>
             <div className='product bg-main-light rounded-2'>
                 <div className='product-details '>
                     <Link to={`/product-details/${item._id}`}>

@@ -4,21 +4,12 @@ import { useParams } from 'react-router-dom'
 import { AuthContext } from '../../Context/AuthContext'
 import { context } from '../../Context/Context'
 import Loading from './../Loading/Loading';
+import Aos from "aos";
 
 export default function ProductDetails() {
     
     let {userData} = useContext(AuthContext)
     let {Cart,addToCart,deleteFromCart,addToWishlist,deleteFromWishlist,Wishlist} = useContext(context)
-    
-    const [isVisible, setIsVisible] = useState(false);
-    useEffect(() => {
-        setIsVisible(false);
-        const timeoutId = setTimeout(() => {
-          setIsVisible(true);
-        },500);
-        return () => clearTimeout(timeoutId);
-      }, []);
-
     let params = useParams()
     const [productDetails, setProductDetails] = useState([])
     const [currentImage, setCurrentImage] = useState(null);
@@ -39,14 +30,17 @@ export default function ProductDetails() {
         window.scrollTo(0, 0);
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
+    useEffect(function () {
+        Aos.init({ duration: 1000 });
+    }, []);
     return (
         <>
         {productDetails.length!==0?
-            <div className={`fade-container ${isVisible ? 'visible' : ''} row align-items-center`}>
+            <div data-aos="zoom-in" className='row align-items-center'>
                 <div className='col-md-4 pe-5'>
                     <div className='d-flex align-items-center'>
                         <div className='col-xl-2 col-md-4 col-1'>
-                            <div className='py-1 product-slider'>
+                            <div className='p-1 product-slider'>
                                 {productDetails.images && productDetails.images.map((img, index) => (
                                     <div
                                         key={index}

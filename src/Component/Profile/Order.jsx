@@ -1,5 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import { context } from "../../Context/Context";
+import Aos from "aos";
 
 export default function Order() {
   let {Orders}=useContext(context);
@@ -7,12 +8,15 @@ export default function Order() {
     window.scrollTo(0, 0);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+  useEffect(function () {
+    Aos.init({ duration: 1000 });
+  }, []);
   return (
     <div className="px-5">
       <div className="fw-bold h3">Your Orders</div>
         <div className="row">
           {Orders?Orders.map((item)=>(
-          <div key={item.id} className="border rounded-1 mb-2 border-success p-3 col-md-12">   
+          <div key={item.id} data-aos="zoom-in" className="border rounded-1 mb-2 border-success p-3 col-md-12">   
             <table  className="table mb-0 text-nowrap table-centered ">
   
               <tbody>

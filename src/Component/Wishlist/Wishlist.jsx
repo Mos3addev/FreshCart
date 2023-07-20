@@ -1,24 +1,20 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { context } from '../../Context/Context';
 import { AuthContext } from '../../Context/AuthContext';
 import { Link } from 'react-router-dom';
 import Loading from '../Loading/Loading';
+import Aos from 'aos';
 
 export default function Wishlist() {
     let {userData} = useContext(AuthContext)
     let {Cart,addToCart,deleteFromCart,deleteFromWishlist,Wishlist} = useContext(context)
     
-    const [isVisible, setIsVisible] = useState(false);
-    useEffect(() => {
-        setIsVisible(false);
-        const timeoutId = setTimeout(() => {
-          setIsVisible(true);
-        },500);
-        return () => clearTimeout(timeoutId);
-    }, []);
     useEffect(() => {
         window.scrollTo(0, 0);
         // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+    useEffect(function () {
+        Aos.init({ duration: 1000 });
     }, []);
   return (
     <>
@@ -27,7 +23,7 @@ export default function Wishlist() {
             {Wishlist.length>0?
                 <div className="row gy-5">
                 {Wishlist?Wishlist.map(item=>(
-                    <div key={item._id} className={`fade-container ${isVisible ? 'visible' : ''} col-xl-2 col-lg-3 col-md-4 col-sm-6`}>
+                    <div key={item._id} data-aos="zoom-in" className='col-xl-2 col-lg-3 col-md-4 col-sm-6'>
                         <div className='product bg-main-light rounded-2'>
                             <div className='product-details '>
                                 <Link to={`/product-details/${item._id}`}>
