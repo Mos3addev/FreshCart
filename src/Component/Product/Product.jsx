@@ -18,7 +18,7 @@ export default function Product({Products}) {
                 <div className='product-details '>
                     <Link to={`/product-details/${item._id}`}>
                         <div className='overflow-hidden'>
-                            <img src={item.imageCover}  className='w-100' alt="" />
+                            <img src={item.imageCover}  className='w-100' alt={item.title.split(" ").slice(0,2).join(" ")} loading='lazy' />
                         </div>
                     </Link>
                     <div className='p-1'>

@@ -47,7 +47,7 @@ export default function ProductDetails() {
                                         className={`product-thumbnail product py-1 ${currentImage === img ? 'active' : ''}`}
                                         onMouseEnter={() => handleThumbnailHover(img)}
                                     >
-                                        <img src={img} className='w-100 rounded-3'  alt="" />
+                                        <img src={img} className='w-100 rounded-3'  alt={productDetails.title.split(" ").slice(0,2).join(" ")} loading='lazy' />
                                     </div>
                                 ))}
                             </div>
